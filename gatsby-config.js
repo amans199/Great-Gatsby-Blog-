@@ -5,6 +5,12 @@
  */
 
 module.exports = {
-  /* Your site config here */
-  plugins: [],
+    siteMetadata: {
+    title: `Gatsby-Bootcamp`,
+    author:`Ahmed Mansour`,
+    description: `Practicing gatsby along with react`,
+  },
+  plugins: [
+    'gatsby-plugin-sass'
+  ],
 }
