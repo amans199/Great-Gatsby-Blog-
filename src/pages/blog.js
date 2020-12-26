@@ -1,6 +1,7 @@
 import { useStaticQuery,Link } from 'gatsby';
 import React from 'react';
 import Layout from '../components/layout'
+import Helmet from '../components/head'
 
 const BlogPage = () => {
   const posts = useStaticQuery(graphql`
@@ -23,6 +24,7 @@ query{
   `)
   return (
     <Layout>
+      <Helmet title="Blog" />
     <h1>Blog</h1>
     {posts.allContentfulBlogPost.edges.map((edge,index)=>{
      return (

@@ -2,6 +2,7 @@ import React from 'react';
 import {graphql,Link} from 'gatsby' 
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
 import Layout from '../components/layout'
+import Helmet from '../components/head'
 
 export const query = graphql`
   query($slug:String!){
@@ -30,6 +31,7 @@ const Blog = (props) => {
   // console.log(JSON.parse(props.data.contentfulBlogPost.body.raw))
   return(
     <Layout>
+      <Helmet title={props.data.contentfulBlogPost.title} />
       <article className="container post">
         <small><Link to="/blog/">{`< \xa0Blog`}</Link></small>
         <header>
