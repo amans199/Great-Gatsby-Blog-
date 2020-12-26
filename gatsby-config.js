@@ -12,6 +12,8 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-react-helmet',
+    'gatsby-image',
+    'gatsby-transformer-sharp',
     {
       resolve:'gatsby-source-contentful',
       options:{

@@ -11,6 +11,16 @@ export const query = graphql`
         publishedDate(fromNow:true)
         body{
           raw
+          references {
+            title
+          ... on ContentfulAsset {
+            contentful_id
+            __typename
+            fluid(maxWidth: 2560) {
+              ...GatsbyContentfulFluid_withWebp
+            }
+          }
+        }
         }
     }
   }
@@ -19,14 +29,17 @@ export const query = graphql`
 const Blog = (props) => {
   const body = JSON.parse(props.data.contentfulBlogPost.body.raw)
   // todo : fix images not displaying issue 
+  // console.log(props.data.contentfulBlogPost.body.references[0].title)
+  // console.log(props.data.contentfulBlogPost.body.references)
   const options = {
-    // renderNode:{
-    //   "embedded-asset-block":(node) => {
-    //     const alt = node.data.target.fields.title['en-US']
-    //     const url = node.data.target.fields.file['en-US'].url
-    //     return <img alt={alt} src={url} />
-    //   }
-    // }
+    renderNode:{
+      "embedded-asset-block":(node,children) => {
+        // console.log(node)
+        // const alt = node.data.target.fields.title['en-US']
+        // const url = node.data.target.fields.file['en-US'].url
+        return <img alt='' src={props.data.contentfulBlogPost.body.references[0].fluid.src} />
+      }
+    }
   }
   // console.log(JSON.parse(props.data.contentfulBlogPost.body.raw))
   return(
@@ -39,9 +52,9 @@ const Blog = (props) => {
           <p>{props.data.contentfulBlogPost.publishedDate}</p>
           {/* <p>{props.data.contentfulBlogPost.body.references.file.url}</p> */}
         </header>
-        {/* <section dangerouslySetInnerHTML={{__html:props.data.allContentfulBlogPost.html}}>
+        {/* <section dangerouslySetInnerHTML={{__html:props.data.contentfulBlogPost.body.raw}}> 
         </section> */}
-        {props.data.contentfulBlogPost.body.raw ? documentToReactComponents(body,options) : ''}
+        {documentToReactComponents(body,options)}
       </article>
     </Layout>
   )

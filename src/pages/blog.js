@@ -2,6 +2,7 @@ import { useStaticQuery,Link } from 'gatsby';
 import React from 'react';
 import Layout from '../components/layout'
 import Helmet from '../components/head'
+import { graphql } from 'gatsby'
 
 const BlogPage = () => {
   const posts = useStaticQuery(graphql`
