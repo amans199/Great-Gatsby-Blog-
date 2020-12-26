@@ -1,5 +1,5 @@
 import React from 'react';
-import {graphql} from 'gatsby' 
+import {graphql,Link} from 'gatsby' 
 
 import Layout from '../components/layout'
 
@@ -22,7 +22,8 @@ export const query = graphql`
 const Blog = (props) => {
   return(
     <Layout>
-      <article>
+      <article className="container post">
+        <small><Link to="/blog/">{`< \xa0Blog`}</Link></small>
         <header>
             <h1>{props.data.markdownRemark.frontmatter.title}</h1>
           <p>{props.data.markdownRemark.frontmatter.date}</p>

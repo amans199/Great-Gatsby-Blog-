@@ -622,3 +622,34 @@ html {
       font-size: 100%;
     }
   }
+
+  .container{
+    max-width: 1140px;
+    margin: auto;
+    @media screen and (max-width:662px) {
+      width:90%;
+      margin: 0 5%;
+    }
+  }
+
+  article.post {
+    max-width: 750px;
+      margin:  0 0 20px;
+  
+    img{
+      object-fit: cover;
+      width: 100%;
+    }
+
+  }
+
+
+  a{
+    text-decoration: none;
+    color: inherit;
+  }
+
+
+  footer{
+    margin-bottom:20px !important;
+  }

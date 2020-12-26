@@ -12,7 +12,7 @@ const Footer = () => {
   }
   `)
   return (
- <footer>
+ <footer className="container">
    created by <a href="https://linkedin.com/in/amans199" target="_blank" rel="noopener noreferrer">{data.site.siteMetadata.author}</a>
  </footer>
   )

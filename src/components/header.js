@@ -14,9 +14,9 @@ const Navbar = () => {
   `)
   return (
  <header className={headerStyles.header}>
-    <nav>
+    <nav className="">
         <h1>{data.site.siteMetadata.title}</h1>
-    <ul>
+    <ul className="container">
     <li><Link to="/" activeClassName={headerStyles.activeNavItem}>Home</Link></li>
     <li><Link to="/blog" activeClassName={headerStyles.activeNavItem}>Blog</Link></li>
     <li><Link to="/about" activeClassName={headerStyles.activeNavItem}>About us</Link></li>
